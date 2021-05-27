@@ -1,0 +1,1 @@
+web: gunicorn ecology_school.wsgi
