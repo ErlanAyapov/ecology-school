@@ -1,0 +1,117 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block haeder_image %}
+{% endblock %}
+{% block title %}<title>{{ object.title}} - клубы</title>{% endblock %}
+
+{% block content %}
+	<div>
+		<div class="group-header">
+			<div class="group">
+								
+				<div class="head-text">
+					<h2>{{ object.title }} - клубы</h2>
+					<!-- <p>{{ object.body }}</p> -->
+
+				</div>
+
+			</div>
+		</div>
+	
+
+		
+			{% for profile in customer %}
+
+				{% if request.user == profile.user %}
+					{% if profile.circle == object  %}
+					<div class="group-contents">
+						<div class="container group-form">
+							<form action="{% url 'add' %}" method="post">
+								{% csrf_token %}
+								<textarea placeholder="Клуб жаңалығы" name="body" cols="40" rows="1" required id="id_body" class="form-control"></textarea>
+								<input type="hidden" name="group" id="id_group" value="{{ object.id }}">
+
+						 
+
+								<button class="btn btn-primary">Қосу</button>
+							</form>
+						</div>
+					</div>
+					{% endif %}
+				{% endif %}
+			{% endfor %}
+
+			{% for news in article %}
+				{% if news.group == object %}
+					<div class="container">
+		
+		 
+					<br>
+						<br>
+						<br>
+							<div class="feed-block-content">
+								<div class="header-block group">
+									<div class="left-header">
+										<h4><a href="" style="text-decoration: none;">{{ news.group.title }} - клубы </a> </h4>
+									</div>
+									<div class="right-header">
+										{% if request.user == news.author %}
+										<a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>					
+										<a href="{% url 'update' news.id %}" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></a>
+										{% elif request.user.is_staff %}
+										<a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>					
+										{% endif %}
+										<a href="{% url 'article_detail' news.id %}" class="btn btn-primary"><i class="fas fa-arrow-right"></i></a>
+									</div>
+								</div>
+
+								<div class="content-block">
+									<p><strong>Автор: </strong>
+										{{ news.author.first_name }} {{ news.author.last_name }}<br>
+										<small><strong>Уақыты: </strong>{{ news.date|slice:":16" }}</small>
+									</p>
+
+									<p>{{ news.body|safe }}</p>
+								</div>
+
+
+							</div>
+
+
+					<!-- Modal -->
+					<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					  <div class="modal-dialog">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <h5 class="modal-title" id="exampleModalLabel">Постты жою</h5>
+					        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					      </div>
+					      <div class="modal-body">
+					        Постты жоюды расайсызба?
+					      </div>
+					      <div class="modal-footer">
+					        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+					        <form action="{% url 'delete_article' object.id %}" method="post">
+					        	{% csrf_token %}
+					        	<button type="submit" class="btn btn-danger">ЖОЮ</button>
+					   
+					        </form>
+					      </div>
+					    </div>
+					  </div>
+					</div>		 
+
+
+						 
+							
+					</div>
+				{% endif %}
+			{% endfor %}
+			
+		
+	</div>
+
+	 
+
+{% endblock %}

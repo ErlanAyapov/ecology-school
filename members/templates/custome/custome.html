@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block header %}
+{% endblock %}
+
+{% block content %}
+	<br>
+	<div class="container block-form bg-color">
+		<form action="" method="post">
+			{% csrf_token %}
+		 	<div class="input-group mb-3">
+			  <label class="input-group-text" for="inputGroupSelect01">Туылған күніңіз</label>
+			   
+			 	 <select class="form-select" name="birth_day" required id="id_birth_day">
+			 	 	
+					{% for d in day %}
+					<option value="{{d}}">{{ d }}</option>
+					{% endfor %}
+				</select>
+			</div>
+
+			<div class="input-group mb-3">
+			  <label class="input-group-text" for="inputGroupSelect01">Туылған айыңыз</label>
+				<select class="form-select" name="birth_mounth" required id="id_birth_mounth">
+			 	 	
+					{% for m in mounth %}
+					<option value="{{m}}">{{ m }}</option>
+					{% endfor %}
+				</select>
+			</div>
+
+			<div class="input-group mb-3">
+			  <label class="input-group-text" for="inputGroupSelect01">Туылған жылыңыз</label>
+				<select class="form-select" name="birth_year" required id="id_birth_year">
+					{% for y in year %}
+					<option value="{{y}}">{{ y }}</option>
+					{% endfor %}
+				</select>
+			</div>
+
+			<div class="input-group mb-3">
+			  <label class="input-group-text" for="inputGroupSelect01">Клуб</label>
+				<select class="form-select" name="circle" maxlength="250" required id="id_circle">
+					 
+					
+					{% for i in customer %}
+						
+						<option  value="{{ i.id }}">{{ i }}</option>
+					{% endfor %}
+				</select>
+
+			</div>
+
+			<button type="submit" class="btn btn-primary">Алға</button>
+
+		</form>
+	</div>
+
+
+{% endblock %}

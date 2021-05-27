@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<div class="container">
+		<div class="block-form bg-color">
+			<h3>Кіру</h3>
+			<form action="" method="post">
+				{% csrf_token %}
+				<input type="text" name="username" class="form-control" placeholder="Қолданушы атауы (username)"> 
+				<input type="text" name="password" class="form-control" placeholder="Құпия сөз"> 
+				<button type="submit" class="btn btn-success">Кіру</button>
+				<br>
+				{% if error %}
+				 <br>
+				<div class="alert alert-danger" role="alert">
+				{{ error }}
+				</div>
+				{% endif %}
+			</form>
+		</div>
+	</div>
+{% endblock %}

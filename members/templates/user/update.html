@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block header %}
+{% endblock %}
+{% block content %}
+<br><br>
+<style type="text/css">
+	input {
+		margin-bottom: 10px;
+	}
+</style>
+	<div class="container">
+		<div class="block-form bg-color">
+			<form action="" method="post">
+				{% csrf_token %}
+				{{ form.first_name }}
+				{{ form.last_name }}
+				{{ form.email }}
+				<button type="submit" class="btn btn-primary">Алға</button>
+			</form>
+		</div>
+	</div>
+{% endblock %}

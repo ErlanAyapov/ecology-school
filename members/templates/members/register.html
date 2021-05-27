@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<br>
+	<div class="container form ">
+		<div class="form-block bg-color">
+			<h3>Тіркелу</h3>
+			<form action="" method="post">
+				{% csrf_token %}
+				<input placeholder="username" class="form-control" type="text" name="username" maxlength="150" autofocus required id="id_username">
+				<input placeholder="Құпия сөз" class="form-control" type="text" name="password1" autocomplete="new-password" required id="id_password1">
+				<input placeholder="Құпия сөзді қайталаңыз" class="form-control" type="text" name="password2" autocomplete="new-password" required id="id_password2">
+
+				<button type="submit" class="btn btn-success">Тіркелу</button>
+
+				{% if message %}
+				<br>
+				<div class="alert alert-danger" role="alert">
+				  Тіркелу нұсқаулығын <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">оқыңыз</a>
+				</div>
+				{% endif %}
+			</form>
+		</div>
+	</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="exampleModalLabel">Тіркелу нұсқаулығы</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div>
+        	<h3>Қолданушы атауы (username)</h3>
+        	<ul>
+        		<li>Міндетті түрде толтырылу қажет</li>
+        		<li>150 сиволдан аспайды</li>
+        		<li>келесі сиволдарды қолдануға болады: @ | . | + | - | _</li>
+        	</ul>
+
+        	<h3>Құпия сөз</h3>
+        	<ul>
+        		<li>Құпия сөз сіздің жеке ақпараттарыңыз ға ұқсамауы тиіс</li>
+        		<li>Құпия сөз 8 символдан кем болмауы тиіс</li>
+        		<li>Құпия сөз қарапайым болмауы тиіс</li>
+        		<li>Құпия сөз толықтай цифрдан тұрмауы тиіс</li>
+        	</ul>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Жабу</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Түсінікті</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Имя пользователя: 
+ Обязательный. 150 символов или меньше. Только буквы, цифры и 
+
+Пароль: 
+
+Ваш пароль не может быть слишком похож на вашу другую личную информацию.
+Ваш пароль должен содержать не менее 8 символов.
+Ваш пароль не может быть обычным паролем.
+Ваш пароль не может быть полностью числовым.
+Подтверждение пароля: 
+ Введите тот же пароль, что и раньше, для проверки. -->
+{% endblock %}

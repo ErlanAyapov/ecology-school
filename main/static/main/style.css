@@ -1,0 +1,158 @@
+body {
+	margin: 0;
+	/*background: linear-gradient(#6BB18C, #ECDAAF) fixed;*/
+	background: #ddd;
+}
+
+.header-image img{
+	box-sizing: border-box;
+	width: 100%;
+}
+.header-image {
+	width: 70%;
+	margin: auto;
+}
+.header-inner-image {
+	background: #74A6CC;
+}
+.form form input {
+	margin-bottom: 10px;
+}
+.bg-color {
+	background: rgba(0, 0, 0, 0.8);
+}
+.form-block h3, .block-form h3 {
+ 	text-align: center;
+ 	margin-bottom: 30px;
+ 	color: white;
+ }
+.form-block {
+	width: 300px;
+	margin: auto;	
+	padding: 25px;
+	box-shadow: 0 0 25px;
+	margin-top: 3%;
+	margin-bottom: 5%;
+	border-radius: 10px;
+}
+.block-form {
+	width: 300px;
+	margin: auto;	
+	padding: 25px;
+	box-shadow: 0 0 25px;
+	margin-top: 3%;
+	margin-bottom: 5%;
+	border-radius: 10px;
+}
+.block-form input {
+	margin-bottom: 10px;
+}
+.card {
+	box-shadow: 0 0 25px;
+}
+.logo-img {
+	width: 30%;
+	float: left;
+}
+.logo-img img {
+	display: flex;
+	margin: auto;
+	box-shadow: 0 0 15px;
+}
+ 
+.head-text h2{
+	text-align: center;
+}
+.group {
+	background: #74A6CC;
+	padding: 20px;
+}
+.group .left-header a {
+	color: #131A1E;
+}
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.left-header {
+	float: left;
+	display: flex;
+}
+.right-header {
+	float: right;
+}
+.feed-block-content {
+	background: rgba(0, 0, 0, 0.8);
+	margin-bottom: 3%;
+}
+.content-block {
+	color: #fff;
+	padding: 20px;
+}
+.details-block {
+	background: rgba(0, 0, 0, 0.8);
+	padding: 20px;
+	color: #fff;
+	margin-top: 3%;
+	margin-bottom: 5%;
+}
+.details-block h3 {
+	text-align: center;
+}
+
+.block-group {
+	margin-top: 2%;
+	margin-bottom: 5%;
+	background: rgba(0, 0, 0, 0.8);
+	color: #fff;
+}
+
+.group-content-block {
+	padding: 20px;	
+}
+
+.image-block {
+	padding: 15px;
+}
+
+.group-contents {
+	background: rgba(0, 0, 0, 0.8);
+	color: #fff;
+	padding: 15px;
+}
+.group-form {
+
+}
+.group-form:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.group-form textarea{
+	width: 80%;
+	float: left;
+}
+.group-form button {
+	width: 17%;
+	text-align: center;
+	float: right;
+}
+.content-footer {
+	background: #10A6CF;
+	 
+
+}
+.content-nav {
+/*	display: flex;
+	justify-content: center;*/
+	padding: 5px;
+}
+.content-nav a {
+	margin: 5px;
+}
+iframe {
+	box-sizing: border-box;
+	width: 100%;
+}

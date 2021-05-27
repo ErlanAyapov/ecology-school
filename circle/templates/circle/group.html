@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+	{% for object in object_list %}
+	{% if not object.id == 1 %}
+
+	
+	
+
+		<div class="block-group">
+			{% if object.picture %}
+				<div class="image-block">
+					<img src="{{ object.picture }}" class="card-img-top" alt="...">
+				</div>
+			{% else %}
+				<div class="image-block">
+					<img src="{% static 'main/image/111.jpg' %}" class="card-img-top" alt="...">
+				</div>
+			{% endif %}
+
+			<div class="group-content-block">
+				<h4>{{ object.title }}</h4>
+				<p>{{ object.body }}</p>
+					<p class="card-text"><a href="{% url 'detail' object.id %}" class="btn btn-primary">Клуб парағы <i class="fas fa-arrow-right"></i></a></p>
+			</div>
+		</div>
+	}
+	{% endif %}
+	{% endfor %}
+
+</div>
+{% endblock %}
