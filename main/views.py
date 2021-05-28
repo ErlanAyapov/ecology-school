@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from .models import Article
-from .forms import ArticleForm, ArticleUpdateForm
+from .models import Article, Comment
+from .forms import ArticleForm, ArticleUpdateForm, CommentForm
 from django.views.generic import ListView, DetailView, DeleteView, UpdateView
 import datetime
 from django.urls import reverse_lazy
@@ -10,10 +10,10 @@ class MainView(ListView):
 	model = Article
 	ordering = '-date'
 	template_name = 'main/index.html'
-	# def get_context_data(self, **kwargs):
-	# 	context = super(DetailsView, self).get_context_data(**kwargs)
-	# 	context['groups'] = Group.objects.all()
-	# 	return context
+	def get_context_data(self, **kwargs):
+		context = super(MainView, self).get_context_data(**kwargs)
+		context['comment'] = Comment.objects.all()
+		return context
 
 def article_add(request):
 	if request.method == 'POST':
@@ -49,3 +49,22 @@ class ArticleUpdateView(UpdateView):
     def form_valid(self, form):
         form.save()
         return redirect('home')
+
+
+
+def CommentAddView(request):
+	if request.method == 'POST':
+		form = CommentForm(request.POST)
+
+		if form.is_valid():
+			form = form.save(commit = False)
+			form.author = request.user
+			form.save()
+			return redirect('home')
+
+	form = CommentForm()
+	data = {
+		'comment_form':form,
+	}
+
+	return render(request, 'main/comment.html', data)

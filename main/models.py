@@ -16,5 +16,20 @@ class Article(models.Model):
 		what = str(self.group) + ' | ' + str(self.author.first_name) + ' ' + str(self.author.last_name)
 		return what
 
+	class Meta:
+		verbose_name = 'Клуб жаңалықтары'
+		verbose_name_plural = 'Клуб жаңалықтары'
 
 
+class Comment(models.Model):
+
+	post   = models.ForeignKey(Article, on_delete = models.CASCADE)
+	author = models.ForeignKey(User, on_delete = models.CASCADE) 
+	comment = models.TextField('Пікір')
+
+	def __str__(self):
+		return str(self.author.first_name)
+
+	class Meta:
+		verbose_name = 'Пікір'
+		verbose_name_plural = 'Пікірлер'

@@ -4,7 +4,7 @@
 
 <div class="container">
 	{% for object in object_list %}
-		 
+	 
 <br>
 	<br>
 	<br>
@@ -34,7 +34,48 @@
 					<a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>					
 					{% endif %}
 					<a href="{% url 'article_detail' object.id %}" class="btn btn-primary"><i class="fas fa-arrow-right"></i></a>
+
+					<a href="" >Пікір қалдыру</a>
 				</div>
+			</div>
+
+			<div class="content-comment">
+				<div class="comments container">
+					{% if comment %}
+						<h4>Пікрілер</h4><br>
+						<ul>
+							{% for i in comment %}
+
+								{% if i.post.id == object.id %}
+								<li>
+									<div class="container size">
+										<h6>{{ i.author.first_name }} {{ i.author.last_name }}</h6>
+										<p>{{ i.comment }}</p>
+									</div>
+									<hr>
+								</li>
+								{% endif %}
+							{% endfor %}
+						</ul>
+
+					{% endif %}
+				</div>
+				<div class="inner-comment">
+					<div class="comment-form">
+						{% if user.is_authenticated %}
+						<form action="{% url 'comment_add' %}" method="post">
+							{% csrf_token %}
+							<input type="hidden" name="post" required id="id_post" value="{{ object.id }}">
+							<textarea placeholder="Пікір жаз..." name="comment" rows="1" class="form-control" required id="id_comment"></textarea>
+							<button class="btn btn-primary" type="submit">+</button>	
+						</form>
+						{% else %}
+
+						<h5>Пікір қалдыру үшің тіркел ;)</h5>
+						{% endif %}
+					</div>
+				</div>
+				
 			</div>
 
 

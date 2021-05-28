@@ -156,3 +156,34 @@ iframe {
 	box-sizing: border-box;
 	width: 100%;
 }
+
+.comment-form form textarea {
+	width: 85%;
+	float: left;
+}
+.comment-form form button {
+	width: 10%;
+	float: right;
+	text-align: center;
+}
+.inner-comment {
+	padding: 20px;
+}
+
+.inner-comment:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+ 
+.comments {
+	color: #fff;
+
+}
+
+.comment-form h5 {
+	color: #fff;
+} 
+.size {
+	font-size: 14px; 
+}

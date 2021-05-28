@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm, TextInput, DateTimeInput, Textarea, EmailInput
-from .models import Article
+from .models import Article, Comment
 
 
 
@@ -20,3 +20,16 @@ class ArticleUpdateForm(forms.ModelForm):
 		widgets = {
 			'body':  Textarea (attrs={'class': 'form-control', 'placeholder': 'Жаз...'}),
 		}
+
+
+class CommentForm(ModelForm):
+	class Meta:
+
+		model = Comment
+		fields = ('author', 'post', 'comment')
+
+		widgets = {
+			'comment': Textarea(attrs = {'class': 'form-control'})
+		}
+
+		exclude = ['author']
