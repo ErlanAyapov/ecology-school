@@ -53,12 +53,12 @@
 		          </li>
 		          {% endif %}
 		          
-			      <li class="nav-item">
+			      <!-- <li class="nav-item">
 		            <a class="nav-link" href="{% url 'group' %}"><i class="fas fa-users"></i> Клубтар</a>
-		          </li>
+		          </li> -->
 		          {% if user.is_authenticated %}
 			          <li class="nav-item">
-			            <a class="nav-link" href="{% url 'add' %}"><i class="fas fa-add"></i>Пост салу</a>
+			            <a class="nav-link" href="{% url 'add' %}"><i class="far fa-plus-square"></i> Пост салу</a>
 			          </li>
 			          <li class="nav-item dropdown">
 			            <a class="nav-link dropdown-toggle" href="#" id="dropdown08" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user"></i> {{ request.user }}</a>

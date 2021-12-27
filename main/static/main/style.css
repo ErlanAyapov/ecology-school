@@ -207,3 +207,17 @@ iframe {
 		max-width: 80%;
 		max-height: 400px;
 }
+.post-form-container {
+	width: 80%;
+	margin: auto;
+	margin-top: 8vh;
+}
+#id_image_base64 {
+	display: none;
+}
+.post-form-container textarea {
+	margin-bottom: 5px;
+}
+.post-form-container button {
+	margin-top: 5px;
+}

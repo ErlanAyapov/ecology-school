@@ -1,11 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
-	<form action="" method="post">
-		{% csrf_token %}
-		{{ news_form.as_p }}
-		<input type="file" name="im" title="Сурет таңдаңыз" accept="image/*" id="id_p" onchange="encodeImageFileAsURL(this, input_id = 'id_image_base64')" />
-		<button type="submit" class="btn btn-primary">Қосу</button>
-	</form>
+	<div class="post-form-container">
+		<form action="" method="post">
+			{% csrf_token %}
+			<!-- {{ news_form.as_p }} -->
+			<textarea class="form-control" name="body" rows="10" required id="id_body" placeholder="Мәтін"></textarea>
+			<textarea class="form-control" name="youtube_link" rows="2" id="id_youtube_link" placeholder="Youtube-тан iframe тегін орнатасыз (міндетті емес)"></textarea>
+			<textarea class="form-control" name="image_base64" cols="40" rows="10" id="id_image_base64"></textarea>
+			<input class="form-control"  type="file" name="im" title="Сурет таңдаңыз" accept="image/*" id="id_p" onchange="encodeImageFileAsURL(this, input_id = 'id_image_base64')" />
+			<button type="submit" class="btn btn-primary">Қосу </button>
+		</form>
+	</div>
+	
 
 {% endblock %}

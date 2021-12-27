@@ -10,6 +10,7 @@ class MainView(ListView):
 	model = Post
 	ordering = '-date'
 	template_name = 'main/index.html'
+
 	# def get_context_data(self, **kwargs):
 	# 	context = super(MainView, self).get_context_data(**kwargs)
 	# 	context['comment'] = Comment.objects.all()
@@ -38,7 +39,7 @@ class ArticleDetailView(DetailView):
 	template_name = 'main/detail.html'
 
 class ArticleDeleteView(DeleteView):
-	model = Article
+	model = Post
 	template_name = 'main/delete.html'
 	success_url = reverse_lazy('home')
 

@@ -6,10 +6,13 @@
 		<div class="details-block">
 			<h3>{{ object.author.first_name }} {{ object.author.last_name }}</h3>
 			<hr>
+			<div class="content-img-block">
+				<img src="{{ object.image_base64 }}">
+			</div>
 			<p>{{ object.body|safe }}</p>
 			<small><strong>Уақыты: </strong>{{ object.date|slice:":16" }}</small>
 			<hr>
-			<small>{{ object.group }} - клубы</small>
+			{{ object.youtube_link|safe }}
 		</div>
 	</div>
 {% endblock %}
