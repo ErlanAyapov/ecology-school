@@ -42,10 +42,7 @@
 		          <li class="nav-item">
 		            <a class="nav-link active" aria-current="page" href="{% url 'home' %}"><i class="fas fa-list"></i> Басты</a>
 		          </li>
-		          {% if user.is_authenticated %}
-		           
-
-		          
+		          {% if user.is_authenticated %}		           		          
 		          {% else %}
 		          <li class="nav-item">
 		            <a class="nav-link" href="{% url 'register' %}"><i class="far fa-edit"></i> Тіркелу</a>
@@ -60,11 +57,14 @@
 		            <a class="nav-link" href="{% url 'group' %}"><i class="fas fa-users"></i> Клубтар</a>
 		          </li>
 		          {% if user.is_authenticated %}
+			          <li class="nav-item">
+			            <a class="nav-link" href="{% url 'add' %}"><i class="fas fa-add"></i>Пост салу</a>
+			          </li>
 			          <li class="nav-item dropdown">
 			            <a class="nav-link dropdown-toggle" href="#" id="dropdown08" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user"></i> {{ request.user }}</a>
 			            <ul class="dropdown-menu" aria-labelledby="dropdown08">
-			              <li><a class="dropdown-item" href="#">Action</a></li>
-			              <li><a class="dropdown-item" href="#">Another action</a></li>
+			             <!--  <li><a class="dropdown-item" href="#">Action</a></li>
+			              <li><a class="dropdown-item" href="#">Another action</a></li> -->
 			              <li><a class="dropdown-item" href="{% url 'logout' %}">Шығу</a></li>
 			            </ul>
 			          </li>
@@ -86,9 +86,11 @@
 
 	<br><br><br>
 
-
+	<script src="{% static 'main/scripts/html2canvas.js' %}"></script>
+	<script src="{% static 'main/scripts/jquery.js' %}"></script>
 	<script src="https://kit.fontawesome.com/e9b4a4c6c5.js" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
-	 
+	<script src="{% static 'main/scripts/script.js' %}"></script>
+	
 </body>
 </html>

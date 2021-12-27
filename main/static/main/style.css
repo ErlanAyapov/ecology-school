@@ -187,3 +187,23 @@ iframe {
 .size {
 	font-size: 14px; 
 }
+/*.content-img-block {
+	width: 100%;
+	/*max-height: 200px; 
+
+
+}
+.content-img-block img {
+	width: 100%;
+	margin: auto;
+}*/
+.content-img-block {
+	padding: 5px;
+	display: flex;
+	justify-content: center;
+}
+.content-img-block img {
+	margin: auto;
+		max-width: 80%;
+		max-height: 400px;
+}

@@ -4,6 +4,8 @@
 	<form action="" method="post">
 		{% csrf_token %}
 		{{ news_form.as_p }}
+		<input type="file" name="im" title="Сурет таңдаңыз" accept="image/*" id="id_p" onchange="encodeImageFileAsURL(this, input_id = 'id_image_base64')" />
 		<button type="submit" class="btn btn-primary">Қосу</button>
 	</form>
+
 {% endblock %}

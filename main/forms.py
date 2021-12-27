@@ -1,15 +1,15 @@
 from django import forms
 from django.forms import ModelForm, TextInput, DateTimeInput, Textarea, EmailInput
-from .models import Article, Comment
+from .models import Article, Comment, Post
 
 
 
 
 
-class ArticleForm(forms.ModelForm):
+class PostForm(forms.ModelForm):
 	class Meta:
-		model = Article
-		fields = ('author','body', 'group', 'date')
+		model = Post
+		fields = ('author','body', 'date', 'youtube_link', 'image_base64')
 		exclude = ['author', 'date']
 
 
