@@ -22,7 +22,7 @@
 					<small><strong>Уақыты: </strong>{{ object.date|slice:":16" }}</small>
 				</p>
 
-				<p>{{ object.body|slice:":400"|safe }}...</p>
+				<p>{{ object.body|slice:":400"|safe }} <a href="{% url 'article_detail' object.id %}"> жалғасы...</a></p>
 
 				{% if object.image_base64 %}
 					<div class="content-img-block">
