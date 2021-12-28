@@ -6,7 +6,7 @@ import datetime
 
 now = datetime.datetime.now()
 
-
+ 
 class Article(models.Model):
 	author = models.ForeignKey(User, on_delete = models.CASCADE)
 	group  = models.ForeignKey(Group, on_delete = models.CASCADE, default = 1)

@@ -221,3 +221,10 @@ iframe {
 .post-form-container button {
 	margin-top: 5px;
 }
+.output-image {
+	background: rgba(0, 0, 0, 0.5);
+}
+.output-image img {
+	width: 90%;
+	margin: auto;
+}
